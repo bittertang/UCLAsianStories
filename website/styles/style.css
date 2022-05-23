@@ -1,0 +1,67 @@
+body{
+    display: grid;
+    grid-template-rows: 50px auto auto;
+    grid-template-areas: "header" "main_content" "footer";
+    background-color: #89CFF0;
+    gap: 10px;
+}
+
+#header{
+    text-align: center;
+    font-size: 20px;
+    font-family: Vollkorn;
+    padding-top: 10px;
+    
+}
+
+#footer{
+    grid-area: footer;
+}
+
+.main{
+    grid-area: main_content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "main_map content";
+    display: grid;
+    padding-top: 100px
+}
+
+#contents{
+
+    grid-area: content;
+    display: grid;
+    grid-template-rows: 1fr 8fr; 
+    grid-template-areas: "buttonHome" "survey"
+}
+
+
+#the_map{
+    height: 80vh;
+    grid-area: main_map;
+}
+
+#theSurvey{
+    grid-area: survey;
+    justify-self: center; /* added this to center the button in the div */
+}
+
+/* css for the button */
+#surveyButton{
+    padding: 15px 32px;
+    margin: 10px;
+    background-color: #FAC898;
+    cursor: pointer;
+}
+
+/* css for button to get rid of the underline */
+#surveyButton a{
+    color: #212121;
+    text-decoration: none; 
+}
+
+#placeForButtons{
+    grid-area: buttonHome;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
