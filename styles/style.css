@@ -1,0 +1,83 @@
+#header{
+    padding: 10px;
+    padding-top: 50px;
+    text-align: center;
+    background: #89cff0;
+    grid-area: header;
+    font-family: 'DM Sans', sans-serif;
+ }
+  
+ button{
+    padding: 15px 32px;
+    margin: 5px;
+    background-color: #FAC898;
+    cursor: pointer;
+ }
+  
+ body{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "header" "main_content";
+    background-color: white;
+    gap: 10px;
+ }
+  
+  
+ #footer{
+    grid-area: footer;
+ }
+  
+  
+ .main{
+    display: grid;
+    grid-area: main_content;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "main_map stories";
+   
+ }
+  
+  
+ #sidebar{
+    display: grid;
+    grid-area: "sidebar";
+    grid-template-rows: .1fr .5fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "buttonHeader buttonHeader" "buttons buttons" "chart chart";
+    row-gap: 1ch;
+    height: 60vh;
+}
+  
+ #the_map{
+    height: 80vh;
+    grid-area: main_map;
+ }
+  
+ #stories{ /*right side panel*/
+    grid-area: stories;
+    /* display: grid; */
+    /* grid-template-rows: 1fr 8fr;
+    grid-template-areas: "buttonHome" "survey" */
+ }
+  
+  
+  
+ /* #theSurvey{
+    grid-area: survey;
+    justify-self: center; added this to center the button in the div
+ } */
+  
+ /* css for the button */
+  
+  
+ /* css for button to get rid of the underline */
+ #surveyButton a{
+    color: #212121;
+    text-decoration: none;
+ }
+  
+ /* #placeForButtons{
+    grid-area: buttonHome;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+ } */
+ 
