@@ -1,57 +1,65 @@
+#header{
+    padding: 10px;
+    padding-top: 50px;
+    text-align: center;
+    background: #89cff0;
+    grid-area: header;
+    font-family: 'DM Sans', sans-serif;
+}
+
+button{
+    padding: 15px 32px;
+    margin: 5px;
+    background-color: #FAC898;
+    cursor: pointer;
+}
+
 body{
     display: grid;
-    grid-template-rows: 50px auto auto;
-    grid-template-areas: "header" "main_content" "footer";
-    background-color: #89CFF0;
+    grid-template-rows: auto auto auto; 
+    grid-template-areas: "header" "main_content";
+    background-color: white;
     gap: 10px;
 }
 
-#header{
-    text-align: center;
-    font-size: 20px;
-    font-family: Vollkorn;
-    padding-top: 10px;
-    
-}
 
 #footer{
     grid-area: footer;
 }
 
+
 .main{
+    display: grid;
     grid-area: main_content;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "main_map content";
-    display: grid;
-    padding-top: 100px
-}
-
-#contents{
-
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 1fr 8fr; 
-    grid-template-areas: "buttonHome" "survey"
+    grid-template-areas: "main_map stories";
+    
 }
 
 
-#the_map{
+
+
+#the_map{ 
     height: 80vh;
     grid-area: main_map;
-}
+} 
 
-#theSurvey{
+#stories{ /*right side panel*/
+    grid-area: stories;
+    /* display: grid; */
+    /* grid-template-rows: 1fr 8fr; 
+    grid-template-areas: "buttonHome" "survey" */
+} 
+
+
+
+/* #theSurvey{
     grid-area: survey;
-    justify-self: center; /* added this to center the button in the div */
-}
+    justify-self: center; added this to center the button in the div 
+} */
 
 /* css for the button */
-#surveyButton{
-    padding: 15px 32px;
-    margin: 10px;
-    background-color: #FAC898;
-    cursor: pointer;
-}
+
 
 /* css for button to get rid of the underline */
 #surveyButton a{
@@ -59,9 +67,9 @@ body{
     text-decoration: none; 
 }
 
-#placeForButtons{
+/* #placeForButtons{
     grid-area: buttonHome;
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-}
+} */
 
