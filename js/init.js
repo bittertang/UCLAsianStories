@@ -1,5 +1,5 @@
 // declare variables
-let mapOptions = {'center': [40,-100],'zoom':4}
+let mapOptions = {'center': [34.0709,-118.444],'zoom': 15}
 
 // declare the map
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);5
@@ -25,26 +25,58 @@ L.control.layers(null,layers).addTo(map)
 
 
 function addMarker(data){
+
+    let negExperience = data['Where on campus would you like to share this experience about?']
+    console.log(negExperience);
+    
+    if (typeof negExperience === undefined){
+        negExperience = data['Where on campus would you like to share this experience about?']
+    }
+
+    
+    
+    // if (data['']){
+            
+    // }
+
     // console.log(data)
     // these are the names of our lat/long fields in the google sheets:
     if(data['Experience'] == "Positive"){
-        pos.addLayer(L.circleMarker([data.lat,data.lng],
+
+        let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
             "color": "#FF0000",
             "weight":3,
-            "opacity":500}).addTo(map).
-        bindPopup(`<h3>${data['Experience']}</h3> <h3>${data['posExperience']}</h3>`))        
+            "opacity":500})
+
+        //when user clicks on marker, add story to side bar
+        marker.addEventListener("click", function(){
+
+            document.getElementById("pressure").innerHTML = data['posExperience'];
+            document.getElementById("experience").innerHTML = data['posExperience']; //add positive experience to sidebar 
+        })
+
+        
+        pos.addLayer(marker).addTo(map).bindPopup(`<h3>${data['Experience']}</h3> <h3>${data['posExperience']}</h3>`)       
         createButtons(data.lat,data.lng,data['posLocation'])
     }
     else{
-        neg.addLayer(L.circleMarker([data.lat,data.lng],
+        let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
             "color": "#00008B",
             "weight":3,
-            "opacity":300}).addTo(map).
-        bindPopup(`<h2>${data['Experience']}</h3> <h3>${data['negExperience']}</h3>`))        
+            "opacity":300})
+
+        marker.addEventListener("click", function(){
+            document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
+        })
+
+        neg.addLayer(marker).addTo(map).bindPopup(`<h2>${data['Experience']}</h3> <h3>${negExperience}</h3>`)        
         createButtons(data.lat,data.lng,data['negLocation'])
     }
+
+    
+
     return
 }
 
@@ -79,8 +111,12 @@ function processData(results){
         console.log(data)
         addMarker(data)
     })
-    NIndian.addTo(map) // add our layers after markers have been made
-    SIndian.addTo(map) // add our layers after markers have been made  
+    pos.addTo(map) // add our layers after markers have been made
+    neg.addTo(map) // add our layers after markers have been made  
 }
+
+
+
+
 
 loadData(dataUrl)
