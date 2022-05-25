@@ -5,4 +5,7 @@ We aim to address educational inequity among UCLA undergraduate students. Due to
 In addition to empowering students, our mapplication can support educational leaders, nonprofit organizations, and higher education institutions in pushing for education reforms and creating programs that can help current students. 
 
 # What technical and ethical problems could there be in developing this tool?
-Since we intend on collecting data about where people are from, there may be privacy concerns surrounding sharing locations, and another problem we may have is being able to collect data from a well represented sample.  
+Since we intend on collecting data about where people are from, there may be privacy concerns surrounding sharing locations, and another problem we may have is being able to collect data from a well represented sample.
+
+
+last edited 5:35pm
