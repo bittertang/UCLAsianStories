@@ -26,22 +26,18 @@ L.control.layers(null,layers).addTo(map)
 
 function addMarker(data){
 
-    let negExperience = data['Where on campus would you like to share this experience about?']
-    console.log(negExperience);
+    let experience = data['Would you like to share about a positive or negative academic experience?']
     
-    if (typeof negExperience === undefined){
-        negExperience = data['Where on campus would you like to share this experience about?']
-    }
 
-    
-    
-    // if (data['']){
-            
+    // if (typeof negExperience === undefined){
+    //     negExperience = data['Where on campus would you like to share this experience about?']
     // }
 
-    // console.log(data)
-    // these are the names of our lat/long fields in the google sheets:
-    if(data['Experience'] == "Positive"){
+
+    
+    if(experience == "Positive"){
+
+        let posExperience = data['Describe a positive academic experience you had this school year.'];
 
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
@@ -61,6 +57,10 @@ function addMarker(data){
         createButtons(data.lat,data.lng,data['posLocation'])
     }
     else{
+
+        let negExperience = data['Describe a positive academic experience you had this school year.'];
+
+
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
             "color": "#00008B",
@@ -71,7 +71,7 @@ function addMarker(data){
             document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
         })
 
-        neg.addLayer(marker).addTo(map).bindPopup(`<h2>${data['Experience']}</h3> <h3>${negExperience}</h3>`)        
+        neg.addLayer(marker).addTo(map).bindPopup(`<h2>${negExperience}</h3> <h3>${negExperience}</h3>`)        
         createButtons(data.lat,data.lng,data['negLocation'])
     }
 
