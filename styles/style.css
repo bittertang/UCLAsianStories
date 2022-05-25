@@ -12,6 +12,7 @@ button{
     margin: 5px;
     background-color: #FAC898;
     cursor: pointer;
+    text-decoration: none;
  }
   
 body{
@@ -26,8 +27,9 @@ body{
  #content{
    grid-area: main_content;
    display: grid;
-   grid-template-columns: .5fr 1fr .5fr;
-   grid-template-areas: "buttons main_map stories";
+   grid-template-columns: .5fr .5fr;
+   grid-template-areas: "main_map stories";
+   /* add charts */
    column-gap: 1%;
    padding-left: 3%;
    padding-right: 3%;
@@ -35,8 +37,8 @@ body{
 }
   
  
-#placeForButtons{ 
-   grid-area: buttons;
+#leftsidebar{ 
+   grid-area: charts;
    /* display: grid;
    grid-template-columns: repeat(3, 1fr); */
 } 
@@ -65,4 +67,6 @@ body{
  }
   
  
- 
+.question{
+   font-weight: bold;
+ } 

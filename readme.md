@@ -7,5 +7,3 @@ In addition to empowering students, our mapplication can support educational lea
 # What technical and ethical problems could there be in developing this tool?
 Since we intend on collecting data about where people are from, there may be privacy concerns surrounding sharing locations, and another problem we may have is being able to collect data from a well represented sample.
 
-
-last edited 5:35pm

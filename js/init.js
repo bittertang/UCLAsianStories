@@ -26,72 +26,76 @@ L.control.layers(null,layers).addTo(map)
 
 function addMarker(data){
 
-    let experience = data['Would you like to share about a positive or negative academic experience?']
-    
+    let year = data['What year are you?'];
+    let experience = data['Would you like to share about a positive or negative academic experience?'];
+    let academicPressures = data['What type of academic pressure, if any, do you face?'];
 
-    // if (typeof negExperience === undefined){
-    //     negExperience = data['Where on campus would you like to share this experience about?']
-    // }
+    //if user didn't fillout anything for academic pressures
+    if (!academicPressures){
+        academicPressures = "";
+    }
 
-
-    
+    console.log(experience);
     if(experience == "Positive"){
 
+        
         let posExperience = data['Describe a positive academic experience you had this school year.'];
+        let posLocation = data['Where on campus would you like to share this positive experience about?'];
 
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
-            "color": "#FF0000",
-            "weight":3,
-            "opacity":500})
+            "color": "#228B22",
+            "weight": 3,
+            "opacity": 500})
 
         //when user clicks on marker, add story to side bar
         marker.addEventListener("click", function(){
-
-            document.getElementById("pressure").innerHTML = data['posExperience'];
-            document.getElementById("experience").innerHTML = data['posExperience']; //add positive experience to sidebar 
+            document.getElementById("year").innerHTML = year;
+            document.getElementById("pressure").innerHTML = academicPressures;
+            document.getElementById("experience").innerHTML = posExperience; 
         })
 
-        
-        pos.addLayer(marker).addTo(map).bindPopup(`<h3>${data['Experience']}</h3> <h3>${data['posExperience']}</h3>`)       
-        createButtons(data.lat,data.lng,data['posLocation'])
+        pos.addLayer(marker).addTo(map)
+        // .bindPopup(`<h2>${year}</h2>`)       
+        // createButtons(data.lat,data.lng,posLocation)
     }
     else{
 
-        let negExperience = data['Describe a positive academic experience you had this school year.'];
-
+        let negExperience = data['Describe a time during this school year where you went through an academic struggle.'];
+        
+        let negLocation = data['Where on campus would you like to share this negative experience about?'];
 
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
-            "color": "#00008B",
-            "weight":3,
-            "opacity":300})
+            "color": "#FF6961",
+            "weight": 3,
+            "opacity": 300})
 
         marker.addEventListener("click", function(){
+            document.getElementById("year").innerHTML = year;
+            document.getElementById("pressure").innerHTML = academicPressures;
             document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
         })
 
-        neg.addLayer(marker).addTo(map).bindPopup(`<h2>${negExperience}</h3> <h3>${negExperience}</h3>`)        
-        createButtons(data.lat,data.lng,data['negLocation'])
+        neg.addLayer(marker).addTo(map)
+        // .bindPopup(`<h2>${year}</h2> <h3>${negExperience}</h3>`)        
+        // createButtons(data.lat,data.lng,negLocation)
     }
-
-    
-
     return
 }
 
-function createButtons(lat,lng,title){
-    const newButton = document.createElement("button"); // adds a new button
-    newButton.id = "button"+title; // gives the button a unique id
-    newButton.innerHTML = `<span style="font-family:'Trebuchet MS';">${title}</span>`;
-    newButton.setAttribute("lat",lat); // sets the latitude 
-    newButton.setAttribute("lng",lng); // sets the longitude 
-    newButton.addEventListener('click', function(){
-        map.flyTo([lat,lng]);
-    })
-    const spaceForButtons = document.getElementById('placeForButtons')
-    spaceForButtons.appendChild(newButton);//this adds the button to our page.
-}
+// function createButtons(lat,lng,title){
+//     const newButton = document.createElement("button"); // adds a new button
+//     newButton.id = "button"+title; // gives the button a unique id
+//     newButton.innerHTML = `<span style="font-family:'Trebuchet MS';">${title}</span>`;
+//     newButton.setAttribute("lat",lat); // sets the latitude 
+//     newButton.setAttribute("lng",lng); // sets the longitude 
+//     newButton.addEventListener('click', function(){
+//         map.flyTo([lat,lng]);
+//     })
+//     const spaceForButtons = document.getElementById('placeForButtons')
+//     spaceForButtons.appendChild(newButton);//this adds the button to our page.
+// }
 
 
 
