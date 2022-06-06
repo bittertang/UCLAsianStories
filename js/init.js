@@ -1,15 +1,23 @@
 // declare variables
-let mapOptions = {'center': [34.0709,-118.444],'zoom': 15}
+let mapOptions = {'center': [34.0709,-118.444],'zoom': 16}
 
 // declare the map
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);5
 
-let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+let Jawg_Light = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	minZoom: 0,
+	maxZoom: 22,
 	subdomains: 'abcd',
-	maxZoom: 20
+	accessToken: 'FkWnkf1e22dnL71CnkeDRnZeEZRyPNd6DqNr2frT4o5zPMcnKvgfcgG2gQCNjnR7'
 });
-CartoDB_Positron.addTo(map)
+
+// let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+// 	subdomains: 'abcd',
+// 	maxZoom: 20
+// });
+Jawg_Light.addTo(map)
 
 let pos = L.featureGroup();
 let neg = L.featureGroup();
