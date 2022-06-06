@@ -28,6 +28,7 @@ function addMarker(data){
 
     let year = data['What year are you?'];
     let experience = data['Would you like to share about a positive or negative academic experience?'];
+    console.log(experience);
     let academicPressures = data['What type of academic pressure, if any, do you face?'];
 
     //if user didn't fillout anything for academic pressures
@@ -35,7 +36,7 @@ function addMarker(data){
         academicPressures = "";
     }
 
-    console.log(experience);
+    
     if(experience == "Positive"){
 
         
@@ -48,18 +49,27 @@ function addMarker(data){
             "weight": 3,
             "opacity": 500})
 
+
         //when user clicks on marker, add story to side bar
         marker.addEventListener("click", function(){
             document.getElementById("year").innerHTML = year;
+            document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
             document.getElementById("pressure").innerHTML = academicPressures;
             document.getElementById("experience").innerHTML = posExperience; 
         })
 
         pos.addLayer(marker).addTo(map)
-        // .bindPopup(`<h2>${year}</h2>`)       
-        // createButtons(data.lat,data.lng,posLocation)
     }
     else{
+
+        //add first gen and low income "tags" here
+        // if (data['Do you identify as a first-generation college student?'] == "Yes"){
+        //     document.getElementById("first_gen_tag").innerHTML = "First Generation";
+        // }
+
+        // if (data['Do you identify as low income?'] == "Yes"){
+        //     document.getElementById("low_income_tag").innerHTML = "Low income";
+        // }
 
         let negExperience = data['Describe a time during this school year where you went through an academic struggle.'];
         
@@ -73,6 +83,7 @@ function addMarker(data){
 
         marker.addEventListener("click", function(){
             document.getElementById("year").innerHTML = year;
+            document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
             document.getElementById("pressure").innerHTML = academicPressures;
             document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
         })
@@ -81,6 +92,10 @@ function addMarker(data){
         // .bindPopup(`<h2>${year}</h2> <h3>${negExperience}</h3>`)        
         // createButtons(data.lat,data.lng,negLocation)
     }
+
+
+    
+
     return
 }
 

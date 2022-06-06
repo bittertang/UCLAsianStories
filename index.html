@@ -2,7 +2,6 @@
 <html>
    <head>
        <title>Asian-American Bruin Stories</title>
-       <!-- hint: remember to change your page title! -->
        <meta charset="utf-8" />
        <link rel="shortcut icon" href="#">
        <link rel="stylesheet" href="styles/style.css">
@@ -18,31 +17,72 @@
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+
    </head>
   
   
  
    <body>
        <div id="header">
-           <h1>Asian American Educational Inequity at UCLA</h1>
-           <p>sharing Asian American student stories around campus.</p>
-           <button>
-               <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBgc6gK7P8TTGFqQ9Sob2k1uJGZhRpiRBHJC-bHyZYZPwUYQ/viewform?usp=sf_link">Add your story</a>
-           </button>
+           <h1>Asian American Educational <br>
+               Inequity at UCLA</br></h1>
+           <p id="intro">Welcome to our mapplication! Our project aims to uplift Asian-American Bruins by providing a platform 
+                to share stories of their academic experiences in their time at UCLA. Feel free to navigate through the
+                map to read the various stories of fellow Asian-American Bruins or share your own story.</p>
+           <a href="#about"><button>About</button></a>
+           <a href="#content"><button>See Stories</button></a>
+           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeBgc6gK7P8TTGFqQ9Sob2k1uJGZhRpiRBHJC-bHyZYZPwUYQ/viewform?usp=sf_link"><button>Add your story</button></a>
        </div>
  
        <div id="content">
            <div id="leftsidebar"></div>
            <div id="the_map"></div>
            <div id="stories">
+                <p>
+                   Click on a point to read a story! :)
+                </p>
                 <h1 id="year"></h1>
+                <p id="first_gen_tag"></p>
+                <p id="low_income_tag"></p>
 
-                <p class="question">Academic Pressures:</p>
+                <p id="pressure_question"></p>
                 <p id="pressure"></p>
-                <p class="question">Story:</p>
+                <p class="question"></p>
                 <p id="experience"></p>
            </div>
        </div>
+
+       <div id="about">
+        <h1>About our project</h1>
+
+        <h2>Background</h2>
+        <p>
+         Educational inequity describes the disparity in academic resources, educational quality, and achievement among 
+         students, especially impacting marginalized groups and their opportunities for economic and social mobility. 
+         Among racial minorities, achievement gaps correlate with socioeconomic factors such as income gaps, poverty rates, 
+         and parents’ educational levels. These gaps starting from preschool form the foundation of students’ experiences 
+         as they enter and become integrated in higher education institutions. 
+
+         Currently, Asian-Americans make up a decent percentage of the population at top universities, and overall have the 
+         highest level of postsecondary degree attainment. Data like this contributes to the dominating narrative that 
+         Asian-American students are doing well in higher education, but oftentimes these data treat Asian-Americans as a 
+         monolith. In reality, Asian-Americans vary widely in ethnicity, socioeconomic status, and parental educational 
+         background, and lumping them together ignores the diverse array of experiences they each face. Our project will 
+         hone in on the stories of Asian-American students at UCLA, who make up about a third of the student body, and how 
+         they each are navigating their academic journeys. 
+        </p>
+
+        <h2>Long Term Impact</h2>
+        <p>
+         we desire to transfer back the ownership to the users of the site - Asian American UCLA students who are facing 
+         difficulties in colleges as a result of their background. In order to facilitate this, we intend to reach to 
+         organizations such as the UCLA Asian-Pacific Coalition and the UCLA First to Go organization. These organizations 
+         deal with the Asian American students here, and we think it will be valuable for them to use this application in 
+         their efforts of improving the experience of Asian American students. We hope that the experiences that are shared 
+         by community members are used in order to tailor resources to better meet the needs of Asian Americans at UCLA. 
+        </p>
+        
+    </div>
        
  
        <script src="js/init.js"></script>

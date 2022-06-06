@@ -1,13 +1,30 @@
+html{
+   scroll-behavior: smooth;
+}
+
+#intro{
+   padding-left: 200px;
+   padding-right: 200px;
+   font-size: 20px;
+}
+
+h1{
+   font-size: 45px;
+}
+
 #header{
     padding: 10px;
-    padding-top: 50px;
+    padding-top: 170px;
+    padding-bottom: 170px;
     text-align: center;
-    background: #89cff0;
+    background-color: #addbd0;
+    color: #164a4a;
     grid-area: header;
     font-family: 'DM Sans', sans-serif;
  }
   
 button{
+   font-size: 20px;
     padding: 15px 32px;
     margin: 5px;
     background-color: #FAC898;
@@ -19,7 +36,7 @@ body{
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-areas: "header" "main_content";
-    background-color: white;
+    background-color: #f6efdc;
     gap: 10px;
  }
   
@@ -53,6 +70,9 @@ body{
 #stories{ /*right side panel*/
    grid-area: stories;
    font-family: 'DM Sans', sans-serif;
+   background-color: #81b5a8;
+   padding: 20px;
+   border-radius: 25px;
 }
 
   
@@ -70,3 +90,9 @@ body{
 .question{
    font-weight: bold;
  } 
+
+ #about{
+   padding-top: 50px;
+   padding: 50px;
+   font-family: 'DM Sans', sans-serif;
+ }
