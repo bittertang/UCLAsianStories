@@ -56,6 +56,7 @@ function addMarker(data){
             document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
             document.getElementById("pressure").innerHTML = academicPressures;
             document.getElementById("experience").innerHTML = posExperience; 
+            document.getElementById("stories").style.backgroundColor = '#8FB93C';
         })
 
         pos.addLayer(marker).addTo(map)
@@ -85,7 +86,9 @@ function addMarker(data){
             document.getElementById("year").innerHTML = year;
             document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
             document.getElementById("pressure").innerHTML = academicPressures;
+            document.getElementById("story").innerHTML = "<b>Story</b>";
             document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
+            document.getElementById("stories").style.backgroundColor = '#CA6873';
         })
 
         neg.addLayer(marker).addTo(map)
