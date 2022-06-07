@@ -12,6 +12,7 @@ h1{
    font-size: 45px;
 }
 
+
 #header{
     padding: 10px;
     padding-top: 170px;
@@ -31,6 +32,15 @@ button{
     font-family: 'DM Sans', sans-serif;
     cursor: pointer;
     text-decoration: none;
+    border-radius: 10px;
+    margin: 1.5rem;
+    transition: all 0.5s ease;
+ }
+
+ button:hover{
+   cursor: pointer;
+   transform: scale(1.1);
+   filter: brightness(110%);
  }
   
 body{
