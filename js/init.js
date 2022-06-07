@@ -1,6 +1,9 @@
 // declare variables
 let mapOptions = {'center': [34.0709,-118.444],'zoom': 16}
-
+const boundaryLayer = "data/uclamap.geojson"
+let boundary; // place holder for the data
+let collected; // variable for turf.js collected points 
+let allPoints = []; // array for all the data points
 // declare the map
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);5
 
@@ -36,6 +39,10 @@ function addMarker(data){
 
     let year = data['What year are you?'];
     let experience = data['Would you like to share about a positive or negative academic experience?'];
+    // create the turfJS point
+    let thisPoint = turf.point([Number(data.lng),Number(data.lat)],{experience})
+    // put all the turfJS points into `allPoints`
+    allPoints.push(thisPoint)
     console.log(experience);
     let academicPressures = data['What type of academic pressure, if any, do you face?'];
 
@@ -143,8 +150,60 @@ function processData(results){
     })
     pos.addTo(map) // add our layers after markers have been made
     neg.addTo(map) // add our layers after markers have been made  
+    let allLayers = L.featureGroup([pos,neg]);
+    map.fitBounds(allLayers.getBounds());
+
+    // step 1: turn allPoints into a turf.js featureCollection
+    thePoints = turf.featureCollection(allPoints)
+
+    // step 2: run the spatial analysis
+    getBoundary(boundaryLayer)
 }
 
+function onEachFeature(feature, layer) {
+  console.log(feature.properties)
+  if (feature.properties.values) {
+      //count the values within the polygon by using .length on the values array created from turf.js collect
+      let count = feature.properties.values.length
+      console.log(count) // see what the count is on click
+      let text = count.toString() // convert it to a string
+      layer.bindPopup(text); //bind the pop up to the number
+  }
+}
+
+// new function to get the boundary layer and add data to it with turf.js
+function getBoundary(layer){
+  fetch(layer)
+  .then(response => {
+      return response.json();
+      })
+  .then(data =>{
+              //set the boundary to data
+              boundary = data
+
+              // run the turf collect geoprocessing
+              collected = turf.collect(boundary, thePoints, 'experience', 'values');
+              // just for fun, you can make buffers instead of the collect too:
+              // collected = turf.buffer(thePoints, 50,{units:'miles'});
+              console.log(collected.features)
+
+              // here is the geoJson of the `collected` result:
+              L.geoJson(collected,{onEachFeature: onEachFeature,style:function(feature)
+              {
+                  console.log(feature)
+                  if (feature.properties.values.length > 0) {
+                      return {color: "#ff0000",stroke: false};
+                  }
+                  else{
+                      // make the polygon gray and blend in with basemap if it doesn't have any values
+                      return{opacity:0,color:"#efefef" }
+                  }
+              }
+              // add the geojson to the map
+                  }).addTo(map)
+      }
+  )   
+}
 
 //About popup
 
