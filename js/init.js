@@ -34,13 +34,10 @@ L.control.layers(null,layers).addTo(map)
 
 function addMarker(data){
 
-    let year = data['What year are you?'];
     let academicPressures = data['What type of academic pressure, if any, do you face?'];
     let experience = data['Would you like to share about a positive or negative academic experience?'];
-    let positive = data['Describe a positive academic experience you had this school year.'];
-    let negative = data['Describe a time during this school year where you went through an academic struggle.'];
     
-    //if user didn't fillout anything for academic pressures
+    //if user didn't fill out anything for academic pressures
     if (!academicPressures){
     academicPressures = "";
     }
@@ -60,11 +57,7 @@ function addMarker(data){
     allPoints.push(thisPoint)
     
     if(experience == "Positive"){
-
-        
-        let posExperience = data['Describe a positive academic experience you had this school year.'];
-        let posLocation = data['Where on campus would you like to share this positive experience about?'];
-
+      
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
             "color": "#228B22",
@@ -74,10 +67,6 @@ function addMarker(data){
         pos.addLayer(marker).addTo(map)
     }
     else{
-
-        let negExperience = data['Describe a time during this school year where you went through an academic struggle.'];
-        
-        let negLocation = data['Where on campus would you like to share this negative experience about?'];
 
         let marker = L.circleMarker([data.lat,data.lng],
             {"radius": 8,
@@ -93,21 +82,6 @@ function addMarker(data){
 
     return
 }
-
-// function createButtons(lat,lng,title){
-//     const newButton = document.createElement("button"); // adds a new button
-//     newButton.id = "button"+title; // gives the button a unique id
-//     newButton.innerHTML = `<span style="font-family:'Trebuchet MS';">${title}</span>`;
-//     newButton.setAttribute("lat",lat); // sets the latitude 
-//     newButton.setAttribute("lng",lng); // sets the longitude 
-//     newButton.addEventListener('click', function(){
-//         map.flyTo([lat,lng]);
-//     })
-//     const spaceForButtons = document.getElementById('placeForButtons')
-//     spaceForButtons.appendChild(newButton);//this adds the button to our page.
-// }
-
-
 
 const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTKwV5fLY967Dz_lXGKPKdNoLbmIZtgDesIOp0BCKj2iS5ep1S63D7MDfKFaLlKmh4H-DG7VO6SR8Em/pub?output=csv"
 
