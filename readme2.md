@@ -11,7 +11,7 @@
 
 
 ## Objective
-The objective of our mapplication is to provide a platform for Asian-American UCLA students to share their academic experiences. We also would like to educate the UCLA community and shed light on the diversity of Asian-American Bruin experiences in navigating higher education. 
+The objective of our project is to provide an open platform for Asian-American students to anonymously share stories of academic experiences they’ve had at UCLA. The Asian American community does face a large number of problems, and it can be daunting for members of the community to seek out the help they need.  There is a lot of focus on success and achievement in the Asian American community, and such pressure can negatively affect students here. Asian American students are often forced by family/society in general to overachieve in school. This can be an isolating experience, and seeking out help is often stigmatized. Our hope is that Asian American students will be able to share their experiences dealing with their struggles at UCLA so that we have a better understanding of the diverse experiences that community members face. 
 
 ## Community
 Our project is intended for the Asian American student community at UCLA. The community here at UCLA is diverse, with many Asian American students coming from low income and first generation backgrounds. However, the entire community is stereotyped as a "model minority" and are treated as a monolith. This is especially seen with academics, as students are stereotyped as "smart". We want to highlight all the varied and diverse experiences of the community.  
