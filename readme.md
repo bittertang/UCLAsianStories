@@ -41,6 +41,8 @@ For this project, we used HTML, CSS (for the design of the site; it is the style
 ## Future use
 With regards to the future of our mapplication, we desire to transfer back the ownership to the users of the site - Asian American UCLA students who are facing difficulties in colleges as a result of their background. In order to facilitate this, we intend to reach out to organizations such as the UCLA Asian-Pacific Coalition and the UCLA First to Go organization. These organizations work with Asian American students, and we think it will be valuable for them to use this application in their efforts of improving the experience of Asian American students. We hope that the experiences that are shared by community members are used in order to tailor resources to better meet the needs of Asian Americans at UCLA. 
 
+Additionally, the technical features of the site in terms of collecting responses and showcasing people's experiences can be used in the context of other problems, provided that the principles of data and design justice are kept in mind. 
+
 
 ## Acknowledgements
 Special thank you to our professor, Albert Kochaphum, for teaching ASIAN AM 191A, where we weere able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
