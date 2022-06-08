@@ -1,3 +1,5 @@
+### UCLAsian 
+
 ## Table of contents
 * [Objective](#Objective)
 * [Community](#Community)
@@ -24,15 +26,19 @@ Our project is intended for the Asian American student community at UCLA. The co
 
 
 ## Features
-
-<!-- ![about popup](./images/hover.png) -->
-
-
 <ol>
-  <li>About popup</li>
-  <img src="./images/hover.png" width="200">
   <li>Hover Regions</li>
-  <li>Story Sidebar</li>
+  <img src="./images/hover.png" width="300">
+  <p>The map is split into 3 different significant regions at UCLA: The Hill, North Campus, and South Campus. Users can hover over each region to see how many responses are mapped to that location.</p>
+
+
+  <li>Story Sidepanel</li>
+  <img src="./images/sidepanel.png" width="300">
+  <p>Upon clicking on a region, the side panel will be populated with all of the responses tied to points within that region, color coded by positive and negative experiences. </p>
+
+  <li>Filter</li>
+  <img src="./images/filter.png" width="300">
+  <p>Users can filter the markers on the map by positive or negative experiences.</p>
 </ol>
 
 
@@ -42,8 +48,14 @@ With regards to the future of our mapplication, we desire to transfer back the o
 
 
 ## Acknowledgements
-Special thank you to our professor, Albert, for teaching us all of the tools we used to build this mapplication and for the guidance throughout this project! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
+Special thank you to our professor, Albert, for teaching ASIAN AM 191A, where we weere able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
 
 
 ## Contact
 If you have any questions, comments, or concerns, please feel free to contact us! 
+
+<ul>
+  <li>Ivy Tang: ivyjiatang@g.ucla.edu</li>
+  <li>Nishaanth Krishnan: nishaanthk@g.ucla.edu</li>
+</ul>
+
