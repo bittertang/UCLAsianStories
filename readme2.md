@@ -17,12 +17,7 @@ The objective of our mapplication is to provide a platform for Asian-American UC
 Our project is intended for the Asian American student community at UCLA. The community here at UCLA is diverse, with many Asian American students coming from low income and first generation backgrounds. However, the entire community is stereotyped as a "model minority" and are treated as a monolith. This is especially seen with academics, as students are stereotyped as "smart". We want to highlight all the varied and diverse experiences of the community.  
 
 ## Technology Used
-<ul>
-  <li>HTML, CSS, Javascript</li>
-  <li>GeoJSON</li>
-  <li>Leaflet</li>
-  <li>Google Forms, Google Spreadsheets, Apps Script</li>
-</ul>
+For this project, we used HTML, CSS (for the design of the site; it is the styles folder), and Javascript (for functionality, see the js folder) for the overall site. In order to collect responses, we used Google Forms. Then, we used Google Sheets, App Script, and Papaparse to process those responses for addition to our site. For the map, we used Leaflet.js for the basemap and to plot markers for the location of each response; we also used Turf.js to visualize the responses by area of campus (North Campus, South Campus, and The Hill dormitories). 
 
 
 ## Features
@@ -48,7 +43,7 @@ With regards to the future of our mapplication, we desire to transfer back the o
 
 
 ## Acknowledgements
-Special thank you to our professor, Albert, for teaching ASIAN AM 191A, where we weere able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
+Special thank you to our professor, Albert Kochaphum, for teaching ASIAN AM 191A, where we weere able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
 
 
 ## Contact
