@@ -59,6 +59,8 @@ body{
    grid-template-areas: "main_map sidebar";
    /* add charts */
    column-gap: 1%;
+   margin-top: 8%;
+   margin-bottom: 8%;
    padding-left: 3%;
    padding-right: 3%;
    
@@ -83,8 +85,10 @@ body{
 }
 
   
-#footer{
-   grid-area: footer;
+footer{
+   font-family: 'DM Sans', sans-serif;
+   background-color: #addbd0;
+   text-align: center;
 }
   
   
