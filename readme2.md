@@ -1,4 +1,4 @@
-### UCLAsian 
+### UCLAsian-American Bruin Stories
 
 ## Table of contents
 * [Objective](#Objective)
