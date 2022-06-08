@@ -23,16 +23,16 @@ For this project, we used HTML, CSS (for the design of the site; it is the style
 ## Features
 <ol>
   <li>Hover Regions</li>
-  <img src="./images/hover.png" width="300">
+  <img src="./images/hover.png" width="500">
   <p>The map is split into 3 different significant regions at UCLA: The Hill, North Campus, and South Campus. Users can hover over each region to see how many responses are mapped to that location.</p>
 
 
   <li>Story Sidepanel</li>
-  <img src="./images/sidepanel.png" width="300">
+  <img src="./images/sidepanel.png" width="600">
   <p>Upon clicking on a region, the side panel will be populated with all of the responses tied to points within that region, color coded by positive and negative experiences. </p>
 
   <li>Filter</li>
-  <img src="./images/filter.png" width="300">
+  <img src="./images/filter.png" width="500">
   <p>Users can filter the markers on the map by positive or negative experiences.</p>
 </ol>
 
