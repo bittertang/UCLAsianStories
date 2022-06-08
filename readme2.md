@@ -1,13 +1,17 @@
 ## Table of contents
 * [Objective](#Objective)
+* [Community](#Community)
 * [Technology Used](#technology-used)
 * [Features](#Features)
 * [Future use](#Future-use)
 * [Acknowledgments](#Acknowledgements)
+* [Contact](#Contact)
 
 
 ## Objective
 The objective of our mapplication is to provide a platform for Asian-American UCLA students to share their academic experiences. We also would like to educate the UCLA community and shed light on the diversity of Asian-American Bruin experiences in navigating higher education. 
+
+## Community
 
 
 ## Technology Used
@@ -22,6 +26,7 @@ The objective of our mapplication is to provide a platform for Asian-American UC
 ## Features
 <ol>
   <li>About popup</li>
+  ![about popup](images/hover.png)
   <li>Hover Regions</li>
   <li>Story Sidebar</li>
 </ol>
@@ -32,3 +37,8 @@ With regards to the future of our mapplication, we desire to transfer back the o
 
 
 ## Acknowledgements
+Special thank you to our professor, Albert, for teaching us all of the tools we used to build this mapplication and for the guidance throughout this project! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
+
+
+## Contact
+If you have any questions, comments, or concerns, please feel free to contact us! 
