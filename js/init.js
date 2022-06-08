@@ -144,9 +144,10 @@ function onEachFeature(feature, layer) {
   console.log(feature.properties)
   if (feature.properties.values) {
       let count = feature.properties.values.length
+      let targetRegion = layer.feature.properties.region
       console.log(count) // see what the count is on click
       let text = count.toString() // convert it to a string
-      layer.bindPopup(text); //bind the pop up to the number
+      layer.bindPopup(targetRegion +': ' + text + ' Responses'); //bind the pop up to the number
   }
 
   layer.on({
@@ -164,7 +165,7 @@ function populateSidebar(e){
   let targetRegion = layer.feature.properties.region
   let numOfStories = layer.feature.properties.values.length
   document.getElementById("stories").innerHTML = '<h2 style="text-align: center;">' + targetRegion + '</h2>';
-  document.getElementById("stories").innerHTML += '<h3 style="text-align: center;">(' + numOfStories + ' responses)</h3>';
+  document.getElementById("stories").innerHTML += '<h3 style="text-align: center;">(' + numOfStories + ' Responses)</h3>';
   
   let stories = layer.feature.properties.values
   stories.forEach(story => addToStoryContent(story))  
