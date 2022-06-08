@@ -85,14 +85,6 @@ function addMarker(data){
             "weight": 3,
             "opacity": 300})
 
-        marker.addEventListener("click", function(){
-            document.getElementById("year").innerHTML = year;
-            document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
-            document.getElementById("pressure").innerHTML = academicPressures;
-            document.getElementById("story").innerHTML = "<b>Story</b>";
-            document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
-        })
-
         neg.addLayer(marker).addTo(map)
     }
 
