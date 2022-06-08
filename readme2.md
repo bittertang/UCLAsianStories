@@ -25,10 +25,12 @@ The objective of our mapplication is to provide a platform for Asian-American UC
 
 ## Features
 
-![about popup](./images/hover.png)
+<!-- ![about popup](./images/hover.png) -->
+
 
 <ol>
   <li>About popup</li>
+  <img src=".images/hover.png" width="200">
   <li>Hover Regions</li>
   <li>Story Sidebar</li>
 </ol>
