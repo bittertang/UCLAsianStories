@@ -1,4 +1,4 @@
-### UCLAsian-American Bruin Stories
+# UCLAsian-American Bruin Stories
 
 ## Table of contents
 * [Objective](#Objective)
@@ -45,7 +45,7 @@ Additionally, the technical features of the site in terms of collecting response
 
 
 ## Acknowledgements
-Special thank you to our professor, Albert Kochaphum, for teaching ASIAN AM 191A, where we weere able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
+Special thank you to our professor, Albert Kochaphum, for teaching ASIAN AM 191A, where we were able to learn and apply all of the tools we used to build this mapplication. We wouldn't have been able to complete this without his guidance throughout this quarter! We'd also like to thank our classmates for participating in our surveys and giving feedback to help us build the best version of this mapplication. 
 
 
 ## Contact
