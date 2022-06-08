@@ -18,7 +18,10 @@
        <!--fonts-->
        <link rel="preconnect" href="https://fonts.googleapis.com">
        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-       <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Rubik:wght@300&family=Space+Mono&display=swap" rel="stylesheet">
+
+       <!-- Adding the TurfJs library  -->
+       <script src='https://unpkg.com/@turf/turf@6.3.0/turf.min.js'></script>
 
    </head>
   
@@ -86,27 +89,16 @@
        </div>
  
        <div id="content">
-           <div id="leftsidebar"></div>
            <div id="the_map"></div>
-           <div id="stories">
-                <p>
-                   Click on a point to read a story! :)
-                </p>
-                <h1 id="year"></h1>
-                <p id="first_gen_tag"></p>
-                <p id="low_income_tag"></p>
-
-                <p id="pressure_question"></p>
-                <p id="pressure"></p>
-                <p id="story"></p>
-                <p id="experience"></p>
+           <div id="sidebar">
+                <div id="stories">
+                    <h2>Click on a region to read different stories!</h2>
+                </div>
            </div>
        </div>
 
        <div id="about">
        
-       
- 
        <script src="js/init.js"></script>
    </body>
 </html>

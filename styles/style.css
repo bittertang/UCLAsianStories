@@ -56,7 +56,7 @@ body{
    grid-area: main_content;
    display: grid;
    grid-template-columns: .5fr .5fr;
-   grid-template-areas: "main_map stories";
+   grid-template-areas: "main_map sidebar";
    /* add charts */
    column-gap: 1%;
    padding-left: 3%;
@@ -64,13 +64,6 @@ body{
    
 }
   
- 
-#leftsidebar{ 
-   grid-area: charts;
-   /* display: grid;
-   grid-template-columns: repeat(3, 1fr); */
-} 
-
 
 #the_map{
    height: 80vh;
@@ -78,13 +71,19 @@ body{
 }
 
 
-#stories{ /*right side panel*/
-   grid-area: stories;
+#sidebar{ /*right side panel*/
+   grid-area: sidebar;
    font-family: 'DM Sans', sans-serif;
-   background-color: #81b5a8;
+   /* background-color: #81b5a8; */
    padding: 20px;
    border-radius: 25px;
+   overflow-y: scroll;
+   height: 500px; 
+
 }
+
+
+
 
   
 #footer{
@@ -107,6 +106,7 @@ body{
    padding: 50px;
    font-family: 'DM Sans', sans-serif;
  }
+
 /* The Modal (background) */
 .modal {
    display: none; /* Hidden by default */
@@ -145,3 +145,4 @@ body{
    text-decoration: none;
    cursor: pointer;
  }
+

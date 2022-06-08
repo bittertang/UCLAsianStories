@@ -1,9 +1,11 @@
 // declare variables
-let mapOptions = {'center': [34.0709,-118.444],'zoom': 16}
 const boundaryLayer = "data/uclamap.geojson"
 let boundary; // place holder for the data
 let collected; // variable for turf.js collected points 
 let allPoints = []; // array for all the data points
+
+let mapOptions = {'center': [34.0709,-118.444],'zoom': 50}
+
 // declare the map
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);5
 
@@ -15,11 +17,6 @@ let Jawg_Light = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}
 	accessToken: 'FkWnkf1e22dnL71CnkeDRnZeEZRyPNd6DqNr2frT4o5zPMcnKvgfcgG2gQCNjnR7'
 });
 
-// let CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-// 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-// 	subdomains: 'abcd',
-// 	maxZoom: 20
-// });
 Jawg_Light.addTo(map)
 
 let pos = L.featureGroup();
@@ -38,19 +35,29 @@ L.control.layers(null,layers).addTo(map)
 function addMarker(data){
 
     let year = data['What year are you?'];
-    let experience = data['Would you like to share about a positive or negative academic experience?'];
-    // create the turfJS point
-    let thisPoint = turf.point([Number(data.lng),Number(data.lat)],{experience})
-    // put all the turfJS points into `allPoints`
-    allPoints.push(thisPoint)
-    console.log(experience);
     let academicPressures = data['What type of academic pressure, if any, do you face?'];
-
+    let experience = data['Would you like to share about a positive or negative academic experience?'];
+    let positive = data['Describe a positive academic experience you had this school year.'];
+    let negative = data['Describe a time during this school year where you went through an academic struggle.'];
+    
     //if user didn't fillout anything for academic pressures
     if (!academicPressures){
-        academicPressures = "";
+    academicPressures = "";
     }
 
+    let surveyResponse ={
+      "year" :  data['What year are you?'],
+      "academicPressures": academicPressures,
+      "experience" :  data['Would you like to share about a positive or negative academic experience?'],
+      "positive" :  data['Describe a positive academic experience you had this school year.'],
+      "negative" :  data['Describe a time during this school year where you went through an academic struggle.']  
+    }
+
+    // create the turfJS point
+    let thisPoint = turf.point([Number(data.lng),Number(data.lat)],{surveyResponse})
+    console.log(thisPoint)
+    // put all the turfJS points into `allPoints`
+    allPoints.push(thisPoint)
     
     if(experience == "Positive"){
 
@@ -64,28 +71,9 @@ function addMarker(data){
             "weight": 3,
             "opacity": 500})
 
-
-        //when user clicks on marker, add story to side bar
-        marker.addEventListener("click", function(){
-            document.getElementById("year").innerHTML = year;
-            document.getElementById("pressure_question").innerHTML = "<b>What type of academic pressure, if any, do you face?</b>";
-            document.getElementById("pressure").innerHTML = academicPressures;
-            document.getElementById("experience").innerHTML = posExperience; 
-            document.getElementById("stories").style.backgroundColor = '#8FB93C';
-        })
-
         pos.addLayer(marker).addTo(map)
     }
     else{
-
-        //add first gen and low income "tags" here
-        // if (data['Do you identify as a first-generation college student?'] == "Yes"){
-        //     document.getElementById("first_gen_tag").innerHTML = "First Generation";
-        // }
-
-        // if (data['Do you identify as low income?'] == "Yes"){
-        //     document.getElementById("low_income_tag").innerHTML = "Low income";
-        // }
 
         let negExperience = data['Describe a time during this school year where you went through an academic struggle.'];
         
@@ -103,12 +91,9 @@ function addMarker(data){
             document.getElementById("pressure").innerHTML = academicPressures;
             document.getElementById("story").innerHTML = "<b>Story</b>";
             document.getElementById("experience").innerHTML = negExperience; //add positive experience to sidebar 
-            document.getElementById("stories").style.backgroundColor = '#CA6873';
         })
 
         neg.addLayer(marker).addTo(map)
-        // .bindPopup(`<h2>${year}</h2> <h3>${negExperience}</h3>`)        
-        // createButtons(data.lat,data.lng,negLocation)
     }
 
 
@@ -158,17 +143,103 @@ function processData(results){
 
     // step 2: run the spatial analysis
     getBoundary(boundaryLayer)
+    // createHeader()
 }
 
+let currentLayer;
+
+//hovering over polygons
+  //post hover
+function resetHighlight(e) {
+  currentLayer.resetStyle(e.target);
+}
+
+  //hover 
+function highlightFeature(e) { 
+  var layer = e.target;
+  layer.openPopup()
+
+  layer.setStyle({
+      weight: 5,
+      color: "#666",
+      dashArray: '',
+      fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+  }
+}
+
+
+
+//clicking on polygons -> shows number
 function onEachFeature(feature, layer) {
   console.log(feature.properties)
   if (feature.properties.values) {
-      //count the values within the polygon by using .length on the values array created from turf.js collect
       let count = feature.properties.values.length
       console.log(count) // see what the count is on click
       let text = count.toString() // convert it to a string
       layer.bindPopup(text); //bind the pop up to the number
   }
+
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    click: populateSidebar
+  });
+}
+
+
+function populateSidebar(e){
+  let layer = e.target;
+
+  //this is the region for the layer we are clicking
+  let targetRegion = layer.feature.properties.region
+  let numOfStories = layer.feature.properties.values.length
+  document.getElementById("stories").innerHTML = '<h2 style="text-align: center;">' + targetRegion + '</h2>';
+  document.getElementById("stories").innerHTML += '<h3 style="text-align: center;">(' + numOfStories + ' responses)</h3>';
+  
+  let stories = layer.feature.properties.values
+  stories.forEach(story => addToStoryContent(story))  
+
+  //add styling to story divs
+  for (const s of document.getElementsByClassName("posStory")) {
+    s.style.backgroundColor = '#AACFA0';
+    s.style.padding = "10px";
+    s.style.margin = "10px";
+    s.style.borderRadius = "10px";
+    
+  }
+
+  for (const s of document.getElementsByClassName("negStory")) {
+    s.style.backgroundColor = '#F0939B';
+    s.style.padding = "10px";
+    s.style.margin = "10px";
+    s.style.borderRadius = "10px";
+  }
+}
+
+function addToStoryContent(data){
+
+  if(data.experience == 'Positive'){ //if experience was positive
+
+    document.getElementById("stories").innerHTML += `<div class="posStory">
+    <h3>${data.year}</h3>
+    <b>What type of academic pressure, if any, do you face?</b>
+    <p>${data.academicPressures}<p>
+    <b>Story</b>
+    <p>${data.positive}</p></div>`; 
+
+  }
+  else{ //if experience was negative
+    document.getElementById("stories").innerHTML += `<div class="negStory">
+    <h3>${data.year}</h3>
+    <b>What type of academic pressure, if any, do you face?</b>
+    <p>${data.academicPressures}<p>
+    <b>Story</b>
+    <p>${data.negative}</p></div>`; 
+  }    
 }
 
 // new function to get the boundary layer and add data to it with turf.js
@@ -181,18 +252,22 @@ function getBoundary(layer){
               //set the boundary to data
               boundary = data
 
-              // run the turf collect geoprocessing
-              collected = turf.collect(boundary, thePoints, 'experience', 'values');
-              // just for fun, you can make buffers instead of the collect too:
-              // collected = turf.buffer(thePoints, 50,{units:'miles'});
+              collected = turf.collect(boundary, thePoints, 'surveyResponse', 'values');
               console.log(collected.features)
 
               // here is the geoJson of the `collected` result:
-              L.geoJson(collected,{onEachFeature: onEachFeature,style:function(feature)
+              currentLayer = L.geoJson(collected,{onEachFeature: onEachFeature,style:function(feature)
               {
                   console.log(feature)
-                  if (feature.properties.values.length > 0) {
-                      return {color: "#ff0000",stroke: false};
+
+                  if (feature.properties.region == "South Campus") { 
+                      return {color: "#F2A33A",stroke: false};
+                  }
+                  if (feature.properties.region == "North Campus") { 
+                    return {color: "#2E6C6C",stroke: false};
+                  }
+                  if (feature.properties.region == "The Hill") { 
+                    return {color: "#921C6A",stroke: false};
                   }
                   else{
                       // make the polygon gray and blend in with basemap if it doesn't have any values
@@ -204,6 +279,8 @@ function getBoundary(layer){
       }
   )   
 }
+
+
 
 //About popup
 
@@ -264,4 +341,3 @@ window.onclick = function(event) {
 
 
 loadData(dataUrl)
-
